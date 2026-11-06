@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Odd One Out</title>
+<meta name="description" content="One of these doesn’t belong. A 30-second daily spot-the-difference game.">
+<meta name="theme-color" content="#1b2bd1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1 aria-label="Odd one out"><span aria-hidden="true"><i class="o"></i>dd <i class="o sq"></i>ne <i class="o"></i>ut</span></h1>
+    <p class="tag">One of these doesn’t belong.</p>
+    <button id="mute" class="icon" type="button" aria-label="Mute sound"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path class="w" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="x" d="M16 9l5 6m0-6l-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </header>
+  <div class="hud">
+    <div class="stat"><b id="score">0</b><span class="lbl">score</span></div>
+    <div class="stat time" id="timeStat"><b id="time">30.0</b><span class="lbl">seconds</span></div>
+    <div class="stat" id="streakStat"><b id="streak">0</b><span class="lbl">streak</span></div>
+  </div>
+  <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+  <main class="stage" id="stage">
+    <section id="intro" class="panel" aria-labelledby="dateLabel">
+      <div class="demo" id="demo"></div>
+      <p id="demoMsg" class="mute small" aria-live="polite"></p>
+      <h2 id="dateLabel"></h2>
+      <p>Tap the symbol that’s different. A wrong tap costs 1 second. You have 30 seconds.</p>
+      <p id="notice" class="warn" hidden></p>
+      <p id="target" class="warn" hidden></p>
+      <p id="bestLine" class="mute"></p>
+      <p id="dayLine" class="mute small"></p>
+      <button id="start" class="btn" type="button">Start</button>
+      <a id="todayLink" class="link" href="?" hidden>Play today’s challenge instead</a>
+      <button id="modeBtn1" class="link" type="button"></button>
+      <p class="mute small fine"></p>
+    </section>
+    <div id="board" class="board" role="group" aria-label="Symbol grid" hidden></div>
+    <section id="result" class="panel" aria-labelledby="rt" hidden>
+      <p id="rt" class="mute">Time’s up</p>
+      <div class="big" id="rScore">0</div>
+      <h2 id="rTitle"></h2>
+      <p id="rBadge" class="badge" hidden></p>
+      <p id="rMsg"></p>
+      <dl class="row">
+        <div><dt>Best</dt><dd id="rBest">0</dd></div>
+        <div><dt>Top streak</dt><dd id="rStreak">0</dd></div>
+        <div><dt>Accuracy</dt><dd id="rAcc">0%</dd></div>
+      </dl>
+      <p id="rNext" class="mute small"></p>
+      <p id="rWait" class="mute small"></p>
+      <div class="acts">
+        <button id="again" class="btn" type="button">Play again</button>
+        <button id="share" class="btn ghost" type="button">Share challenge</button>
+      </div>
+      <button id="modeBtn2" class="link" type="button"></button>
+      <div id="manualWrap" hidden>
+        <label for="manual" class="mute small">Copy this message and send it to a friend:</label>
+        <textarea id="manual" readonly rows="5"></textarea>
+      </div>
+      <p id="note" class="mute small" role="status"></p>
+    </section>
+  </main>
+  <p id="fb" class="fb" role="status" aria-live="polite"></p>
+  <noscript><p class="warn">Odd One Out needs JavaScript to run.</p></noscript>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
